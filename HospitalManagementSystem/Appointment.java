@@ -6,9 +6,9 @@ public class Appointment {
 
     public Appointment(int appointmnetId, String patientFullName, String doctorFullName, String date) {
         this.appointmentId = appointmnetId;
-        this.patientFullName = patientFullName;
-        this.doctorFullName = doctorFullName;
-        this.date = date;
+        setPatientFullName(patientFullName);
+        setDoctorFullName(doctorFullName);
+        setDate(date);
     }
 
     public int getAppointmentId() {
@@ -28,13 +28,28 @@ public class Appointment {
         this.appointmentId = appointmentId;
     }
     public void setPatientFullName(String patientFullName) {
-        this.patientFullName = patientFullName;
+        if (patientFullName != null && !patientFullName.trim().isEmpty()) {
+            this.patientFullName = patientFullName;
+        } else {
+            System.out.println("Invalid patient name. Setting to 'Unknown'");
+            this.patientFullName = "Unknown";
+        }
     }
     public void setDoctorFullName(String doctorFullName) {
-        this.doctorFullName = doctorFullName;
+        if (doctorFullName != null && !doctorFullName.trim().isEmpty()) {
+            this.doctorFullName = doctorFullName;
+        } else {
+            System.out.println("Invalid doctor name. Setting to 'Unknown'");
+            this.doctorFullName = "Unknown";
+        }
     }
     public void setDate(String date) {
-        this.date = date;
+        if (date != null && !date.trim().isEmpty()) {
+            this.date = date;
+        } else {
+            System.out.println("Invalid date. Setting to 'Unknown'");
+            this.date = "Unknown";
+        }
     }
 
     public void reschedule(String newDate){

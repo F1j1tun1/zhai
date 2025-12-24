@@ -6,9 +6,9 @@ public class Patient {
 
     public Patient(int patientId, String fullName, int age, String bloodType) {
         this.patientId = patientId;
-        this.fullName = fullName;
-        this.age = age;
-        this.bloodType = bloodType;
+        setFullName(fullName);
+        setAge(age);
+        setBloodType(bloodType);
     }
 
 
@@ -30,13 +30,28 @@ public class Patient {
         this.patientId = patientId;
     }
     public void setFullName(String fullName) {
-        this.fullName = fullName;
+        if (fullName != null && !fullName.trim().isEmpty()) {
+            this.fullName = fullName;
+        } else {
+            System.out.println("Invalid name. Setting to 'Unknown'.");
+            this.fullName = "Unknown";
+        }
     }
     public void setAge(int age) {
-        this.age = age;
+        if (age >= 0 && age <= 121) {
+            this.age = age;
+        } else {
+            System.out.println("Invalid age. Setting to 0");
+            this.age = 0;
+        }
     }
     public void setBloodType(String bloodType) {
-        this.bloodType = bloodType;
+        if (bloodType != null && !bloodType.trim().isEmpty()) {
+            this.bloodType = bloodType;
+        } else {
+            System.out.println("Invalid blood type. Setting to 'Unknown'");
+            this.bloodType = "Unknown";
+        }
     }
 
 
