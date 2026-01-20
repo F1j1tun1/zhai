@@ -6,8 +6,7 @@ public class Patient extends Person implements Treating{
     private String illness;
     private boolean checked;
 
-    public Patient(int id, String name, int age, String department,
-                   String illness, boolean checked) {
+    public Patient(int id, String name, int age, String department, String illness, boolean checked) {
         super(id, name, age, department);
         setIllness(illness);
         this.checked = checked;
@@ -18,9 +17,6 @@ public class Patient extends Person implements Treating{
             throw new InvalidInputException("Illness cannot be empty");
         }
         this.illness = illness;
-    }
-    public boolean isChecked() {
-        return checked;
     }
 
     @Override

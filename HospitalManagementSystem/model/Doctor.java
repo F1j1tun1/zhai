@@ -10,7 +10,6 @@ public class Doctor extends Person implements Treating {
         super(id, name, age, department);
         setSpecialization(specialization);
         setExperienceYears(experienceYears);
-
     }
 
     public void setSpecialization(String specialization) {
