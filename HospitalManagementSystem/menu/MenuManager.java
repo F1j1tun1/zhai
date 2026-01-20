@@ -51,7 +51,7 @@ public class MenuManager implements Menu {
                         System.out.println("Invalid choice.");
                 }
             }
-            catch (InvalidInputException e){
+            catch (Exception e){
                 System.out.println("Error: " + e.getMessage());
                 scanner.nextLine();
             }
@@ -60,51 +60,61 @@ public class MenuManager implements Menu {
     }
 
     private void addDoctor() {
-        System.out.print("ID: ");
-        int id = scanner.nextInt();
-        scanner.nextLine();
+        try {
+            System.out.print("ID: ");
+            int id = scanner.nextInt();
+            scanner.nextLine();
 
-        System.out.print("Name: ");
-        String name = scanner.nextLine();
+            System.out.print("Name: ");
+            String name = scanner.nextLine();
 
-        System.out.print("Age: ");
-        int age = scanner.nextInt();
-        scanner.nextLine();
+            System.out.print("Age: ");
+            int age = scanner.nextInt();
+            scanner.nextLine();
 
-        System.out.print("Department: ");
-        String dept = scanner.nextLine();
+            System.out.print("Department: ");
+            String dept = scanner.nextLine();
 
-        System.out.print("Specialization: ");
-        String spec = scanner.nextLine();
+            System.out.print("Specialization: ");
+            String spec = scanner.nextLine();
 
-        System.out.print("Experience years: ");
-        int exp = scanner.nextInt();
+            System.out.print("Experience years: ");
+            int exp = scanner.nextInt();
 
-        people.add(new Doctor(id, name, age, dept, spec, exp));
+            people.add(new Doctor(id, name, age, dept, spec, exp));
+        }
+        catch (IllegalArgumentException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
     }
 
     private void addPatient() {
-        System.out.print("ID: ");
-        int id = scanner.nextInt();
-        scanner.nextLine();
+        try {
+            System.out.print("ID: ");
+            int id = scanner.nextInt();
+            scanner.nextLine();
 
-        System.out.print("Name: ");
-        String name = scanner.nextLine();
+            System.out.print("Name: ");
+            String name = scanner.nextLine();
 
-        System.out.print("Age: ");
-        int age = scanner.nextInt();
-        scanner.nextLine();
+            System.out.print("Age: ");
+            int age = scanner.nextInt();
+            scanner.nextLine();
 
-        System.out.print("Department: ");
-        String dept = scanner.nextLine();
+            System.out.print("Department: ");
+            String dept = scanner.nextLine();
 
-        System.out.print("Illness: ");
-        String illness = scanner.nextLine();
+            System.out.print("Illness: ");
+            String illness = scanner.nextLine();
 
-        System.out.print("Checked (true/false): ");
-        boolean checked = scanner.nextBoolean();
+            System.out.print("Checked (true/false): ");
+            boolean checked = scanner.nextBoolean();
 
-        people.add(new Patient(id, name, age, dept, illness, checked));
+            people.add(new Patient(id, name, age, dept, illness, checked));
+        }
+        catch (IllegalArgumentException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
     }
 
     private void viewAllPeople() {
