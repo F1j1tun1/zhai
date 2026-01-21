@@ -29,11 +29,10 @@ public class MenuManager implements Menu {
     @Override
     public void run() {
         boolean running = true;
-
+        testData();
         while (running) {
             try {
                 displayMenu();
-                testData();
                 int choice = scanner.nextInt();
                 scanner.nextLine();
 
