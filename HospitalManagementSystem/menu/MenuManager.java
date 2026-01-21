@@ -30,6 +30,7 @@ public class MenuManager implements Menu {
     public void run() {
         boolean running = true;
         testData();
+
         while (running) {
             try {
                 displayMenu();
@@ -43,16 +44,15 @@ public class MenuManager implements Menu {
                     case 4: demonstrateWork(); break;
                     case 5: demonstrateTreating(); break;
                     case 0:
-                        System.out.println("Exiting...");
                         running = false;
+                        System.out.println("Exiting...");
                         break;
                     default:
-                        System.out.println("Invalid choice.");
+                        System.out.println("Invalid choice");
                 }
             }
-            catch (Exception e){
+            catch (Exception e) {
                 System.out.println("Error: " + e.getMessage());
-                scanner.nextLine();
             }
         }
         scanner.close();
